@@ -16,24 +16,102 @@
 <link rel="stylesheet" href="assets/ackly.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.6' fill='none' stroke='%23996100' stroke-width='2'/%3E%3Cpath d='M6.2 10.4l2.6 2.6 5-5.4' fill='none' stroke='%23996100' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
-<body class="watch">
+<body class="watch home">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="band">
+  <div class="band__inner">
+    <a class="mark" href="#top" aria-label="Ackly, home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.2 10.4l2.6 2.6 5-5.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Ackly</span>
+    </a>
+    <nav aria-label="Products">
+      <ul>
+        <li><a href="watch/">Watch</a></li>
+        <li><a href="backup/">Backup</a></li>
+        <li><a href="send/">Send</a></li>
+        <li><a href="check/">Free checker</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <main id="main" class="sheet">
-  <section aria-labelledby="hero-title">
-    <h1 id="hero-title">Shopify apps that show their work.</h1>
-    <p class="lede">Small apps for problems Shopify merchants describe in their own reviews, each one telling you exactly what it checked and what it did.</p>
-    <ul>
-      <li><a href="watch/">Ackly Watch</a>: checks your eBay listings against Shopify every 5 minutes and tells you when they drift. Early access.</li>
-      <li><a href="backup/">Ackly Backup</a>: nightly product backup you can read, download as a CSV and restore with a check. Early access.</li>
-      <li><a href="send/">Ackly Send</a>: WhatsApp order messages with proof they arrived. Founding list.</li>
-      <li><a href="check/">Free eBay sync checker</a>: compare your eBay and Shopify exports in your browser. Files never leave your computer.</li>
+  <section id="top" aria-labelledby="hero-title">
+    <dl class="waybill">
+      <div><dt>From</dt><dd>Luxembourg</dd></div>
+      <div><dt>Contents</dt><dd>3 apps, 1 free tool</dd></div>
+      <div><dt>Support</dt><dd>A person, at <a href="mailto:hello@ackly.app">hello@ackly.app</a></dd></div>
+    </dl>
+
+    <div class="hero">
+      <h1 id="hero-title">Shopify apps that show their work.</h1>
+      <p class="lede">Small apps for problems Shopify merchants describe in their own reviews. Each one does one job, keeps a log of what it checked and what it did, and costs a flat monthly price with nothing on top.</p>
+    </div>
+
+    <ul class="manifest" aria-label="Ackly products">
+      <li class="item" style="--stamp: oklch(0.47 0.12 62)">
+        <a class="item__link" href="watch/">
+          <h2 class="item__name">Ackly Watch</h2>
+          <p class="item__job">Compares every eBay listing with your Shopify stock and price every 5 minutes, and emails you the moment they drift.</p>
+          <span class="item__price">$15 / month</span>
+          <span class="stamp">Early access</span>
+          <span class="item__go" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="item" style="--stamp: oklch(0.47 0.12 62)">
+        <a class="item__link" href="backup/">
+          <h2 class="item__name">Ackly Backup</h2>
+          <p class="item__job">A nightly copy of your products that you can read, download as a CSV and restore, with a check that it matches.</p>
+          <span class="item__price">$7 / month</span>
+          <span class="stamp">Early access</span>
+          <span class="item__go" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="item" style="--stamp: oklch(0.42 0.19 264)">
+        <a class="item__link" href="send/">
+          <h2 class="item__name">Ackly Send</h2>
+          <p class="item__job">WhatsApp order messages, with proof that each one arrived.</p>
+          <span class="item__price">$9 / month, locked</span>
+          <span class="stamp">Founding list</span>
+          <span class="item__go" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="item" style="--stamp: oklch(0.43 0.02 262)">
+        <a class="item__link" href="check/">
+          <h2 class="item__name">Free eBay sync checker</h2>
+          <p class="item__job">Drop in your eBay and Shopify exports and see every mismatch. It runs in your browser, so the files never leave your computer.</p>
+          <span class="item__price">Free</span>
+          <span class="stamp stamp--quiet">No signup</span>
+          <span class="item__go" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
     </ul>
   </section>
+
+  <section aria-labelledby="proof-title">
+    <h2 id="proof-title">Every app writes a log you can read.</h2>
+    <p class="lede">So you never have to take our word for it. This is what Watch writes when a listing drifts.</p>
+    <div class="log" data-log>
+      <div class="log__head" aria-hidden="true"><span>Time</span><span>Check</span><span>Detail</span><span>Status</span></div>
+      <ol class="scans" aria-label="Example check log">
+        <li class="scan__day">Oak &amp; Thread, 312 listings on Shopify and eBay. Thursday 3 September</li>
+        <li class="scan"><time datetime="10:00:04">10:00:04</time><span class="scan__event">Check #4182</span><span class="scan__detail">312 eBay listings, stock and price</span><span class="stamp">All match</span></li>
+        <li class="scan scan--exception"><time datetime="10:05:03">10:05:03</time><span class="scan__event">Stock drift: Oak mug, 12 oz</span><span class="scan__detail">Shopify 0 left, eBay still shows 4. Still buyable.</span><span class="stamp stamp--exception">Drift</span></li>
+        <li class="scan"><time datetime="10:05:05">10:05:05</time><span class="scan__event">Alert sent</span><span class="scan__detail">Email: which listing, what drifted, what Shopify says</span><span class="stamp stamp--quiet">Logged</span></li>
+        <li class="scan"><time datetime="10:20:02">10:20:02</time><span class="scan__event">Check #4185</span><span class="scan__detail">Fixed in your sync app. 312 of 312 match.</span><span class="stamp">All match</span></li>
+      </ol>
+      <p class="log__caption">Example log with sample data. A real log keeps every check, so you can show exactly when a drift started and ended.</p>
+    </div>
+  </section>
 </main>
+
 <footer class="foot">
   <div class="foot__inner">
     <p>Ackly, made in Luxembourg.</p>
     <p><a href="mailto:hello@ackly.app">hello@ackly.app</a> · Not affiliated with Shopify, eBay or Meta.</p>
   </div>
 </footer>
+<script src="assets/ackly.js" defer></script>
 </body>
 </html>

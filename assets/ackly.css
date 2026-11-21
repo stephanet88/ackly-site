@@ -234,3 +234,32 @@ p { max-width: 65ch; text-wrap: pretty; }
   .is-scanning .scan::after, .is-scanning .stamp { animation: none; }
   .button, .faq summary::after { transition: none; }
 }
+
+/* Home: the manifest of products */
+.manifest { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; border-top: 2px solid var(--rule-strong); }
+.item { border-bottom: 1px solid var(--rule); }
+.item__link {
+  display: grid; grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr) 9.5rem 8.5rem 1.5rem;
+  gap: 0.5rem 1.5rem; align-items: baseline; padding: 1.5rem 0.75rem; margin: 0 -0.75rem;
+  color: inherit; text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+.item__link:hover { background: var(--stamp-wash); }
+.item__name { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.01em; max-width: none; }
+.item__job { margin: 0; color: var(--ink-2); font-size: 1rem; }
+.item__price { font: 600 1rem/1.3 var(--data); font-feature-settings: "tnum" 1; }
+.item__link .stamp { justify-self: start; white-space: nowrap; }
+.item__go { font: 500 1.3rem/1 var(--data); color: var(--ink-2); justify-self: end; transition: transform 200ms var(--ease-out), color 160ms var(--ease-out); }
+.item__link:hover .item__go { transform: translateX(4px); color: var(--ink); }
+.item__link:active { background: var(--stamp-wash); }
+.home .sheet > section + section h2 { max-width: 22ch; }
+
+@media (max-width: 47.99rem) {
+  .item__link { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name stamp" "job job" "price price"; padding: 1.25rem 0.75rem; }
+  .item__name { grid-area: name; }
+  .item__link .stamp { grid-area: stamp; justify-self: end; }
+  .item__job { grid-area: job; }
+  .item__price { grid-area: price; color: var(--ink-2); }
+  .item__go { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .item__link, .item__go { transition: none; } .item__link:hover .item__go { transform: none; } }
