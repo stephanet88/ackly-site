@@ -263,3 +263,9 @@ p { max-width: 65ch; text-wrap: pretty; }
   .item__go { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .item__link, .item__go { transition: none; } .item__link:hover .item__go { transform: none; } }
+
+/* Home: links to the written fixes */
+.fixes { list-style: none; margin: 1.5rem 0 0; padding: 0; border-top: 2px solid var(--rule-strong); max-width: 50rem; }
+.fixes li { border-bottom: 1px solid var(--rule); }
+.fixes a { display: block; padding: 0.9rem 0; font-weight: 500; font-size: 1.05rem; text-decoration: none; }
+.fixes a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
