@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ackly Send: WhatsApp order messages with proof they arrived</title>
+<meta name="description" content="Order confirmations, shipping updates and cart reminders on WhatsApp for Shopify. Every message logged: sent, delivered, read, or failed and retried. One flat price, Meta's fees at cost, a person who answers.">
+<link rel="canonical" href="https://ackly.app/send/">
+<meta name="theme-color" content="#1f3fb0">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ackly.app/send/">
+<meta property="og:title" content="Ackly Send: WhatsApp order alerts for Shopify, with proof of delivery">
+<meta property="og:description" content="Order confirmations, shipping updates and cart reminders on WhatsApp for Shopify. Every message logged: sent, delivered, read, or failed and retried. One flat price, Meta's fees at cost, a person who answers.">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="../assets/fonts/barlow-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/ackly.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.6' fill='none' stroke='%23293bb0' stroke-width='2'/%3E%3Cpath d='M6.2 10.4l2.6 2.6 5-5.4' fill='none' stroke='%23293bb0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="band">
+  <div class="band__inner">
+    <a class="mark" href="#top" aria-label="Ackly Send, home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.2 10.4l2.6 2.6 5-5.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Ackly <span class="mark__product">Send</span></span>
+    </a>
+    <nav aria-label="Page">
+      <ul>
+        <li><a href="#exceptions">Why switch</a></li>
+        <li><a href="#route">Switching</a></li>
+        <li><a href="#charges">Price</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="sheet">
+  <section id="top" aria-labelledby="hero-title">
+    <dl class="waybill">
+      <div><dt>Service</dt><dd>WhatsApp order messages for Shopify</dd></div>
+      <div><dt>Status</dt><dd>Founding list open, launching early 2027</dd></div>
+    </dl>
+
+    <div class="hero">
+      <h1 id="hero-title">WhatsApp order messages, with proof they arrived.</h1>
+      <div class="hero__side">
+        <p class="lede">Order confirmations, shipping updates and cart reminders on WhatsApp, sent from your own number. Every message is logged: sent, delivered, read, or failed and retried. One flat price, Meta's fees at cost, and a person who answers.</p>
+        <form class="form form--compact" data-waitlist data-product="send" data-endpoint="" novalidate>
+          <input type="hidden" name="product" value="send">
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field">
+            <label for="send-email-top">Join the founding list: first 50 stores pay $9 a month, locked</label>
+            <input id="send-email-top" name="email" type="email" autocomplete="email" required placeholder="you@yourstore.com">
+          </div>
+          <button class="button" type="submit">Join the list</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="log" data-log>
+      <div class="log__head" aria-hidden="true"><span>Time</span><span>Message</span><span>Detail</span><span>Status</span></div>
+      <ol class="scans" aria-label="Example message log for order 1047">
+        <li class="scan__day">Order #1047, Ana Ribeiro, Lisbon. Tuesday 12 May</li>
+        <li class="scan"><time datetime="14:02:11">14:02:11</time><span class="scan__event">Order confirmation</span><span class="scan__detail">Template "order_confirmed_pt", Portuguese</span><span class="stamp">Sent</span></li>
+        <li class="scan"><time datetime="14:02:12">14:02:12</time><span class="scan__event">Order confirmation</span><span class="scan__detail">On Ana's phone</span><span class="stamp">Delivered</span></li>
+        <li class="scan"><time datetime="14:05:40">14:05:40</time><span class="scan__event">Order confirmation</span><span class="scan__detail">Opened 3 minutes later</span><span class="stamp">Read</span></li>
+        <li class="scan scan--exception"><time datetime="16:31:02">16:31:02</time><span class="scan__event">Shipping update</span><span class="scan__detail">Meta rate limit (error 131056). Retry scheduled in 30 s, you're told only if it fails again.</span><span class="stamp stamp--exception">Failed</span></li>
+        <li class="scan"><time datetime="16:31:33">16:31:33</time><span class="scan__event">Shipping update</span><span class="scan__detail">Second attempt, tracking link included</span><span class="stamp">Delivered</span></li>
+        <li class="scan"><time datetime="16:31:33">16:31:33</time><span class="scan__event">Meta fee</span><span class="scan__detail">Utility message to Portugal, charged at Meta's rate, shown on your bill</span><span class="stamp stamp--quiet">Logged</span></li>
+      </ol>
+      <p class="log__caption">Example log with sample data. Your log shows every message like this, searchable by order.</p>
+    </div>
+
+  </section>
+
+  <section id="exceptions" aria-labelledby="exceptions-title">
+    <h2 id="exceptions-title">What went wrong with the last app</h2>
+    <p class="lede">We read 646 one- to three-star reviews of the nine most-reviewed WhatsApp apps for Shopify. The same four failures came up again and again.</p>
+    <div class="ledger">
+      <div class="ledger__row">
+        <span class="ledger__count">221</span>
+        <div class="ledger__was"><h3>Nobody answered</h3><p>"The app's support is ZERO. No reply to multiple messages." Tickets open for weeks while messages stop going out.</p></div>
+        <div class="ledger__now"><h3>A person answers, the same day</h3><p>Email or WhatsApp us. The people who build the app reply, on weekdays within a few hours (Luxembourg time).</p></div>
+      </div>
+      <div class="ledger__row">
+        <span class="ledger__count">141</span>
+        <div class="ledger__was"><h3>Messages stopped without warning</h3><p>The connection drops or templates fail, and the store only finds out when customers ask where their order is.</p></div>
+        <div class="ledger__now"><h3>Every message has a receipt</h3><p>Sent, delivered, read or failed, with the reason. A failure is retried, and you hear about it only if the retry fails too.</p></div>
+      </div>
+      <div class="ledger__row">
+        <span class="ledger__count">126</span>
+        <div class="ledger__was"><h3>Charged for messages that never went out</h3><p>Credits deducted with nothing sent, upgrades nobody asked for, refunds refused after uninstalling.</p></div>
+        <div class="ledger__now"><h3>One price, every fee itemised</h3><p>A flat monthly price. Meta's per-message fee is passed through at cost, line by line, next to the message it paid for.</p></div>
+      </div>
+      <div class="ledger__row">
+        <span class="ledger__count">30</span>
+        <div class="ledger__was"><h3>The store's number got banned</h3><p>Connected an app, sent a campaign, and lost the WhatsApp number customers knew. 27 of these 30 reviews are from 2025 or 2026.</p></div>
+        <div class="ledger__now"><h3>Sending that protects your number</h3><p>Only customers who opted in, paced sending, and your number's quality rating watched daily, with a warning before Meta acts.</p></div>
+      </div>
+    </div>
+    <p class="source">Source: public Shopify App Store reviews, read November 2026. Counts can overlap: one review can name several failures.</p>
+  </section>
+
+  <section id="route" aria-labelledby="route-title">
+    <h2 id="route-title">Switching takes an afternoon, not a migration project</h2>
+    <ol class="route">
+      <li><h3>Connect your number</h3><p>Sign in with Meta in our setup window. You keep using the WhatsApp Business app on your phone, on the same number.</p><span class="took">About 10 minutes</span></li>
+      <li><h3>Bring your templates</h3><p>Paste the messages you already send, or start from ours. Write each one in every language your customers use.</p><span class="took">About 20 minutes</span></li>
+      <li><h3>Choose what goes out</h3><p>Order confirmed, shipped, out for delivery, cart left behind. Turn on what you want; everything else stays off.</p><span class="took">About 5 minutes</span></li>
+    </ol>
+  </section>
+
+  <section id="charges" class="charges" aria-labelledby="charges-title">
+    <h2 id="charges-title">The whole bill, up front</h2>
+    <div class="charges__grid">
+    <div class="bill" role="table" aria-label="Price">
+      <div class="bill__row" role="row"><span role="cell">Ackly Send, every feature, one store</span><span role="cell">$19 / month</span></div>
+      <div class="bill__row" role="row"><span role="cell">Founding stores (first 50), locked</span><span role="cell">$9 / month</span></div>
+      <div class="bill__row" role="row"><span role="cell">Meta's per-message fee</span><span role="cell">At cost, itemised</span></div>
+      <div class="bill__row" role="row"><span role="cell">Setup, templates, support</span><span role="cell">$0</span></div>
+      <div class="bill__row bill__row--total" role="row"><span role="cell">Anything else</span><span role="cell">Nothing</span></div>
+      <p class="bill__note">Billed through Shopify. Cancel from your Shopify admin at any time.</p>
+    </div>
+    <p class="charges__aside">Meta charges every WhatsApp sender per delivered message, depending on the customer's country and the message type. We show that fee next to each message instead of hiding it in credits.</p>
+    </div>
+  </section>
+
+  <section id="questions" aria-labelledby="questions-title">
+    <h2 id="questions-title">Questions</h2>
+    <div class="faq">
+      <details><summary>Is it live?</summary><p>Not yet. We're building it for the stores on the founding list and launching on the Shopify App Store in early 2027. Join the list and we'll email you once, when you can install it.</p></details>
+      <details><summary>Can I keep using WhatsApp on my phone?</summary><p>Yes. Meta's coexistence setup lets the WhatsApp Business app and Ackly Send share the same number, so you keep your chats and contacts.</p></details>
+      <details><summary>Could my number get banned?</summary><p>Numbers get restricted when people who never asked for messages report them. Ackly Send only messages customers who opted in at checkout, paces large sends, and checks your number's quality rating every day, so you're warned while there's still time to act.</p></details>
+      <details><summary>What does Meta charge?</summary><p>It depends on the customer's country and the type of message; order updates cost less than marketing. You'll see the exact fee on every line of your log and your bill.</p></details>
+      <details><summary>Which languages?</summary><p>Any language WhatsApp supports. You write or approve each template, so messages sound like your store, not like a robot.</p></details>
+    </div>
+  </section>
+  <section id="join" aria-labelledby="join-title">
+    <div class="consignee">
+      <h2 class="consignee__title" id="join-title">Join the founding list</h2>
+      <p class="consignee__terms">The first 50 stores pay $9 a month, locked for as long as they stay. No card now; we email you once, when it's ready.</p>
+      <form class="form" data-waitlist data-product="send" data-endpoint="" novalidate>
+        <input type="hidden" name="product" value="send">
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field">
+          <label for="send-email">Work email</label>
+          <input id="send-email" name="email" type="email" autocomplete="email" required placeholder="you@yourstore.com">
+        </div>
+        <div class="field">
+          <label for="send-store">Store URL (optional)</label>
+          <input id="send-store" name="store" type="text" inputmode="url" autocomplete="url" placeholder="yourstore.com">
+        </div>
+        <button class="button" type="submit">Join the list</button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <p>Ackly, Shopify apps that show their work. Made in Luxembourg.</p>
+    <p><a href="mailto:hello@ackly.app">hello@ackly.app</a> · Not affiliated with WhatsApp or Meta.</p>
+  </div>
+</footer>
+<script src="../assets/ackly.js" defer></script>
+</body>
+</html>

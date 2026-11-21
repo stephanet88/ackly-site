@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ackly Watch: your marketplace sync, checked every 5 minutes</title>
+<meta name="description" content="Ackly Watch compares your eBay listings with your Shopify stock and prices every 5 minutes and emails you the moment they drift, before a buyer orders something you no longer have. Works alongside the sync app you already use.">
+<link rel="canonical" href="https://ackly.app/watch/">
+<meta name="theme-color" content="#f5c242">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ackly.app/watch/">
+<meta property="og:title" content="Ackly Watch: eBay sync alerts for Shopify">
+<meta property="og:description" content="Ackly Watch compares your eBay listings with your Shopify stock and prices every 5 minutes and emails you the moment they drift, before a buyer orders something you no longer have. Works alongside the sync app you already use.">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="../assets/fonts/barlow-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/ackly.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.6' fill='none' stroke='%23996100' stroke-width='2'/%3E%3Cpath d='M6.2 10.4l2.6 2.6 5-5.4' fill='none' stroke='%23996100' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body class="watch">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="band">
+  <div class="band__inner">
+    <a class="mark" href="#top" aria-label="Ackly Watch, home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.2 10.4l2.6 2.6 5-5.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Ackly <span class="mark__product">Watch</span></span>
+    </a>
+    <nav aria-label="Page">
+      <ul>
+        <li><a href="#exceptions">Why</a></li>
+        <li><a href="#route">Setup</a></li>
+        <li><a href="#charges">Price</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="sheet">
+  <section id="top" aria-labelledby="hero-title">
+    <dl class="waybill">
+      <div><dt>Service</dt><dd>Independent check of your marketplace sync</dd></div>
+      <div><dt>Status</dt><dd>Early access for eBay, not on the App Store yet. Free 2-week check for the first stores</dd></div>
+    </dl>
+
+    <div class="hero">
+      <h1 id="hero-title">Your marketplace sync, checked every 5 minutes.</h1>
+      <div class="hero__side">
+        <p class="lede">Ackly Watch compares every eBay listing with your Shopify stock and prices and emails you the moment they drift, before a buyer orders something you no longer have. It works alongside the sync app you already use.</p>
+        <form class="form form--compact" data-waitlist data-product="watch" data-endpoint="" novalidate>
+          <input type="hidden" name="product" value="watch">
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field">
+            <label for="watch-email-top">Free 2-week check on your store. No card.</label>
+            <input id="watch-email-top" name="email" type="email" autocomplete="email" required placeholder="you@yourstore.com">
+          </div>
+          <button class="button" type="submit">Check my store</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="log" data-log>
+      <div class="log__head" aria-hidden="true"><span>Time</span><span>Check</span><span>Detail</span><span>Status</span></div>
+      <ol class="scans" aria-label="Example check log">
+        <li class="scan__day">Oak &amp; Thread, 312 listings on Shopify and eBay. Thursday 3 September</li>
+        <li class="scan"><time datetime="10:00:04">10:00:04</time><span class="scan__event">Check #4182</span><span class="scan__detail">312 eBay listings, stock and price</span><span class="stamp">All match</span></li>
+        <li class="scan scan--exception"><time datetime="10:05:03">10:05:03</time><span class="scan__event">Stock drift: Oak mug, 12 oz</span><span class="scan__detail">Shopify 0 left, eBay still shows 4. Still buyable.</span><span class="stamp stamp--exception">Mismatch</span></li>
+                <li class="scan"><time datetime="10:05:05">10:05:05</time><span class="scan__event">Alert sent</span><span class="scan__detail">Email: which listing, what drifted, what Shopify says</span><span class="stamp stamp--quiet">Logged</span></li>
+        <li class="scan"><time datetime="10:20:02">10:20:02</time><span class="scan__event">Check #4185</span><span class="scan__detail">Fixed in your sync app. 312 of 312 match.</span><span class="stamp">All match</span></li>
+      </ol>
+      <p class="log__caption">Example log with sample data. Your log keeps every check, so you can show exactly when a drift started and ended.</p>
+    </div>
+  </section>
+
+  <section id="exceptions" aria-labelledby="exceptions-title">
+    <h2 id="exceptions-title">Sync apps fail quietly. You find out from an angry buyer.</h2>
+    <p class="lede">We read 840 one- to three-star reviews of the eleven most-reviewed marketplace sync apps for Shopify, including Shopify's own Marketplace Connect.</p>
+    <div class="ledger">
+      <div class="ledger__row">
+        <span class="ledger__count">347</span>
+        <div class="ledger__was"><h3>The sync stopped and nobody knew</h3><p>Listings rejected, stock not updated, orders not imported, all without an error the store could see.</p></div>
+        <div class="ledger__now"><h3>A second pair of eyes, every 5 minutes</h3><p>Ackly Watch reads the marketplaces directly and compares them with Shopify. It doesn't trust the sync app's own status.</p></div>
+      </div>
+      <div class="ledger__row">
+        <span class="ledger__count">211</span>
+        <div class="ledger__was"><h3>Wrong stock, wrong prices, oversold orders</h3><p>Items sold that were out of stock, prices changed by the app, listings deleted, then refunds and marketplace penalties.</p></div>
+        <div class="ledger__now"><h3>Caught before a buyer sees it</h3><p>Every mismatch is flagged with what drifted: sold out but still buyable, more listed than you have, a SKU linked to nothing, a price that moved.</p></div>
+      </div>
+      <div class="ledger__row">
+        <span class="ledger__count">503</span>
+        <div class="ledger__was"><h3>Support that never fixed it</h3><p>Days to answer, "we need to investigate", and the problem still there next week.</p></div>
+        <div class="ledger__now"><h3>Evidence for your sync app's support</h3><p>The log shows the exact listing, the time it drifted and the time it was fixed. Send it to them, or to us: a person answers the same weekday.</p></div>
+      </div>
+    </div>
+    <p class="source">Source: public Shopify App Store reviews, read November 2026. Counts can overlap: one review can name several failures.</p>
+  </section>
+
+  <section id="real" aria-labelledby="real-title">
+    <h2 id="real-title">What you see in Shopify</h2>
+    <img src="../assets/watch-demo.png" width="970" height="295" loading="lazy" alt="Ackly Watch inside Shopify: four eBay listings flagged, one sold out in Shopify but still buyable, one listing more than Shopify has, one SKU linked to nothing, one price that differs" style="display:block;max-width:100%;height:auto;margin-top:1.5rem;border:1px solid currentColor;border-radius:6px">
+    <p class="source">Real screen from a test store with sample products.</p>
+  </section>
+
+  <section id="route" aria-labelledby="route-title">
+    <h2 id="route-title">Set up in 5 minutes. Your sync app stays exactly as it is.</h2>
+    <ol class="route">
+      <li><h3>Install on Shopify</h3><p>Ackly Watch reads your products, stock and prices. It never changes them in Shopify.</p><span class="took">About 2 minutes</span></li>
+      <li><h3>Connect eBay</h3><p>Sign in to eBay, read-only. Watch never changes a listing.</p><span class="took">About 2 minutes</span></li>
+      <li><h3>Add your alert email</h3><p>The first check runs right away. New problems are emailed; the same stuck listing never emails you twice.</p><span class="took">About 1 minute</span></li>
+    </ol>
+  </section>
+
+  <section id="charges" class="charges" aria-labelledby="charges-title">
+    <h2 id="charges-title">The whole bill, up front</h2>
+    <div class="charges__grid">
+      <div class="bill" role="table" aria-label="Price">
+        <div class="bill__row" role="row"><span role="cell">First 2 weeks</span><span role="cell">Free</span></div>
+        <div class="bill__row" role="row"><span role="cell">Then, up to 5,000 listings</span><span role="cell">$15 / month</span></div>
+        <div class="bill__row" role="row"><span role="cell">Checks, alerts, log history</span><span role="cell">Included</span></div>
+        <div class="bill__row" role="row"><span role="cell">Setup and support</span><span role="cell">$0</span></div>
+        <div class="bill__row bill__row--total" role="row"><span role="cell">Anything else</span><span role="cell">Nothing</span></div>
+        <p class="bill__note">Billed through Shopify. Cancel from your Shopify admin at any time.</p>
+      </div>
+      <p class="charges__aside">One oversold order usually costs more than a month of Ackly Watch: the refund, the marketplace's late-shipment or cancellation mark, and a buyer who doesn't come back.</p>
+    </div>
+  </section>
+
+  <section id="questions" aria-labelledby="questions-title">
+    <h2 id="questions-title">Questions</h2>
+    <div class="faq">
+      <details><summary>Is it live?</summary><p>Yes, for eBay. Etsy comes next. Leave your email and we set up your free 2-week check personally, usually the same day.</p></details>
+      <details><summary>Does it replace my sync app?</summary><p>No. Your sync app keeps doing the syncing. Ackly Watch only checks its work and tells you when it slipped.</p></details>
+      <details><summary>Which sync apps does it work with?</summary><p>Any of them, including Shopify Marketplace Connect, because it compares the marketplaces with Shopify directly rather than reading the sync app.</p></details>
+      <details><summary>Can it change my listings?</summary><p>No. It only reads. It never edits prices, titles or stock on eBay or in Shopify.</p></details>
+      <details><summary>What if a check fails?</summary><p>You're told. A marketplace that can't be reached is shown as unknown, never as a match, so silence always means checked and fine.</p></details>
+    </div>
+  </section>
+
+  <section id="join" aria-labelledby="join-title">
+    <div class="consignee">
+      <h2 class="consignee__title" id="join-title">Get a free 2-week check</h2>
+      <p class="consignee__terms">We set it up on your store and you see every listing that doesn't match. After 2 weeks it's $15 a month through Shopify, or nothing if it's not for you.</p>
+      <form class="form" data-waitlist data-product="watch" data-endpoint="" novalidate>
+        <input type="hidden" name="product" value="watch">
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field">
+          <label for="watch-email">Work email</label>
+          <input id="watch-email" name="email" type="email" autocomplete="email" required placeholder="you@yourstore.com">
+        </div>
+        <div class="field">
+          <label for="watch-store">Store URL (optional)</label>
+          <input id="watch-store" name="store" type="text" inputmode="url" autocomplete="url" placeholder="yourstore.com">
+        </div>
+        <button class="button" type="submit">Check my store</button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <p>Ackly, Shopify apps that show their work. Made in Luxembourg.</p>
+    <p><a href="mailto:hello@ackly.app">hello@ackly.app</a> · <a href="privacy.html">Privacy</a> · Not affiliated with eBay, Etsy, Amazon or Shopify.</p>
+  </div>
+</footer>
+<script src="../assets/ackly.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free eBay and Shopify sync checker | Ackly</title>
+<meta name="description" content="Find every eBay listing that no longer matches your Shopify stock or price: sold out but still buyable, over-listed, unlinked SKUs, wrong prices. Free, runs in your browser, your files never leave your computer.">
+<meta property="og:title" content="Is your eBay out of sync with Shopify? Free checker">
+<meta property="og:description" content="Drop in two exports you already have and see every broken listing in seconds. Free, private, no install.">
+<meta name="theme-color" content="#f5c242">
+<link rel="stylesheet" href="../assets/ackly.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8.6' fill='none' stroke='%23996100' stroke-width='2'/%3E%3Cpath d='M6.2 10.4l2.6 2.6 5-5.4' fill='none' stroke='%23996100' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  .drop { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin-block: 1.5rem; }
+  .drop label { display: grid; gap: .5rem; padding: 1.25rem; border: 1.5px dashed var(--field-border); border-radius: 10px; cursor: pointer; transition: border-color .2s var(--ease-out), background .2s var(--ease-out); }
+  .drop label:hover, .drop label:focus-within { border-color: var(--stamp); background: var(--stamp-wash); }
+  .drop label.ready { border-style: solid; border-color: var(--stamp); }
+  .drop strong { font-size: 1.05rem; }
+  .drop small { color: var(--ink-2); }
+  .drop input { font: inherit; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--stamp); text-decoration: underline; cursor: pointer; }
+  .result { margin-top: 2rem; }
+  .counts { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: 1rem; }
+  .pill { padding: .3rem .75rem; border-radius: 999px; font-family: var(--data); font-weight: 600; background: var(--stamp-wash); }
+  .pill--high { background: var(--exception-wash); color: var(--exception); }
+  table.found { width: 100%; border-collapse: collapse; font-family: var(--data); font-variant-numeric: tabular-nums; }
+  table.found th, table.found td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.found th { font-weight: 600; color: var(--ink-2); }
+  .wrap { overflow-x: auto; }
+  table.found { min-width: 34rem; }
+  table.found td:first-child, table.found td:nth-child(3), table.found td:nth-child(4) { white-space: nowrap; }
+  .next { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin-top: 2rem; }
+  .next > div { padding: 1.25rem; border: 1px solid var(--rule); border-radius: 10px; }
+  .howto summary { cursor: pointer; font-weight: 600; }
+  .error { color: var(--exception); }
+</style>
+</head>
+<body class="watch">
+<a class="skip" href="#main">Skip to content</a>
+<header class="band">
+  <div class="band__inner">
+    <a class="mark" href="./" aria-label="Ackly sync checker">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.2 10.4l2.6 2.6 5-5.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Ackly <span class="mark__product">Sync checker</span></span>
+    </a>
+  </div>
+</header>
+
+<main id="main" class="sheet">
+  <section aria-labelledby="title">
+    <h1 id="title">Is your eBay out of sync with Shopify?</h1>
+    <p class="lede">Drop in two files you already have. In a few seconds you'll see every eBay listing that's sold out in Shopify but still buyable, listed above your stock, linked to a SKU that doesn't exist, or priced differently. Free. It runs in your browser: your files never leave your computer.</p>
+
+    <div class="drop">
+      <label id="shop-box">
+        <strong>1. Shopify products export</strong>
+        <small>Shopify admin › Products › Export › All products › CSV</small>
+        <input type="file" id="shop" accept=".csv,text/csv">
+      </label>
+      <label id="ebay-box">
+        <strong>2. eBay active listings report</strong>
+        <small>eBay Seller Hub › Reports › Downloads › Active listings</small>
+        <input type="file" id="ebay" accept=".csv,text/csv">
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="button" id="run" type="button" disabled>Check my listings</button>
+      <button class="linkish" id="sample" type="button">or try it with sample files</button>
+    </div>
+    <p class="error" id="err" role="alert"></p>
+
+    <details class="howto">
+      <summary>Where exactly do I find these files?</summary>
+      <p><b>Shopify:</b> in your admin open Products, click Export, choose "All products" and "CSV for Excel" or "Plain CSV file". Shopify emails it if your catalog is large.</p>
+      <p><b>eBay:</b> open Seller Hub, go to Reports, then Downloads, request an "Active listings" report and download the CSV once it's ready (usually a minute or two).</p>
+      <p>Listings are matched by SKU: Shopify's "Variant SKU" against eBay's "Custom label (SKU)".</p>
+    </details>
+  </section>
+
+  <section aria-labelledby="common">
+    <h2 id="common">Common eBay sync problems</h2>
+    <ul>
+      <li><a href="fix/marketplace-connect-not-syncing-inventory.html">Marketplace Connect isn't syncing your inventory to eBay</a></li>
+      <li><a href="fix/ebay-sku-not-matching-shopify.html">Your eBay SKUs don't match Shopify</a></li>
+      <li><a href="fix/oversold-on-ebay-after-shopify-sale.html">Oversold on eBay after a Shopify sale</a></li>
+      <li><a href="fix/ebay-listing-still-active-when-sold-out.html">Sold out in Shopify, still live on eBay</a></li>
+      <li><a href="fix/ebay-price-different-from-shopify.html">Your eBay prices don't match Shopify</a></li>
+    </ul>
+  </section>
+
+  <section class="result" id="result" hidden aria-live="polite">
+    <h2 id="headline"></h2>
+    <div class="counts" id="counts"></div>
+    <div class="wrap"><table class="found" id="table">
+      <thead><tr><th scope="col">SKU</th><th scope="col">Problem</th><th scope="col">eBay</th><th scope="col">Shopify</th><th scope="col">eBay item</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="next">
+      <div>
+        <h3>Get this checked every 5 minutes</h3>
+        <p>Ackly Watch runs this exact check inside Shopify all day and emails you when a listing drifts, before a buyer orders something you don't have. Free for 14 days.</p>
+        <p><a href="mailto:hello@ackly.app?subject=Ackly%20Watch%20early%20access">Get early access</a> (early access, not on the App Store yet)</p>
+      </div>
+      <div>
+        <h3>Want it fixed for you?</h3>
+        <p>We fix the links, SKUs and sync settings behind these problems. A flat $150, and you only pay once the check comes back clean.</p>
+        <p><a href="mailto:hello@ackly.app?subject=Fix%20my%20eBay%20sync">Email us your results</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <p>Ackly, Shopify apps that show their work. Made in Luxembourg.</p>
+    <p><a href="privacy.html">Privacy</a> · Not affiliated with eBay or Shopify. Nothing you load here is uploaded anywhere.</p>
+  </div>
+</footer>
+
+<script src="../assets/checker.js"></script>
+<script>
+const WHAT = {
+  oversell_risk: ["Sold out in Shopify, still buyable on eBay", true],
+  overlisted: ["eBay lists more than you have", true],
+  unlinked: ["SKU matches nothing in Shopify", false],
+  price_drift: ["Price differs from Shopify", false],
+  underlisted: ["eBay lists less than you have", false],
+};
+const SAMPLE_SHOP = "Handle,Title,Variant SKU,Variant Inventory Tracker,Variant Inventory Qty,Variant Price\nretro-console,Retro Console,RC-001,shopify,0,149.00\ndenim-jacket,Denim Jacket,VDJ-M,shopify,2,85.00\nbooster-box,Booster Box,TCB-24,shopify,12,110.00\nsilk-scarf,Silk Scarf,SS-RED,shopify,5,39.00\nspeaker,Marine Speaker,MS-6,shopify,7,129.00\n";
+const SAMPLE_EBAY = "Item number,Title,Custom label (SKU),Available quantity,Current price\n2961,Retro Console,RC-001,1,149.00\n2962,Denim Jacket,VDJ-M,5,85.00\n2963,Booster Box,TCB,12,110.00\n2964,Silk Scarf,SS-RED,5,35.00\n2965,Marine Speaker,MS-6,7,129.00\n";
+const $ = (id) => document.getElementById(id);
+const files = { shop: null, ebay: null };
+const ready = () => { $("run").disabled = !(files.shop && files.ebay); };
+for (const k of ["shop", "ebay"]) {
+  $(k).addEventListener("change", async (e) => {
+    const f = e.target.files[0];
+    files[k] = f ? await f.text() : null;
+    $(k + "-box").classList.toggle("ready", Boolean(f));
+    ready();
+  });
+}
+function show(shopText, ebayText) {
+  $("err").textContent = "";
+  let found;
+  try { found = window.acklyCheck(shopText, ebayText); }
+  catch (e) { $("err").textContent = "Couldn't read these files: " + e.message + ". Check they are the CSV exports described above."; return; }
+  const rows = found.map((f) => {
+    const [label, high] = WHAT[f.kind];
+    const tr = document.createElement("tr");
+    const cells = [f.sku || "(no SKU)", label, f.listing.quantity + " at " + f.listing.price,
+      f.shopify ? (f.shopify.available ?? "untracked") + " at " + f.shopify.price : "not in Shopify", f.listingId || ""];
+    for (const c of cells) { const td = document.createElement("td"); td.textContent = c; tr.append(td); }
+    if (high) tr.firstChild.style.color = "var(--exception)";
+    return tr;
+  });
+  $("table").tBodies[0].replaceChildren(...rows);
+  const high = found.filter((f) => f.severity === "high").length;
+  $("headline").textContent = found.length
+    ? `${found.length} listing problem${found.length > 1 ? "s" : ""}` + (high ? `, ${high} can oversell right now` : "")
+    : "Everything matches. Nice.";
+  const by = {};
+  for (const f of found) by[f.kind] = (by[f.kind] || 0) + 1;
+  $("counts").replaceChildren(...Object.entries(by).map(([k, n]) => {
+    const s = document.createElement("span"); s.className = "pill" + (WHAT[k][1] ? " pill--high" : ""); s.textContent = `${n} · ${WHAT[k][0]}`; return s;
+  }));
+  $("table").hidden = !found.length;
+  $("result").hidden = false;
+  $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+$("run").addEventListener("click", () => show(files.shop, files.ebay));
+$("sample").addEventListener("click", () => show(SAMPLE_SHOP, SAMPLE_EBAY));
+</script>
+</body>
+</html>

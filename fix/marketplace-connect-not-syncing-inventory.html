@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify Marketplace Connect not syncing inventory to eBay: causes and fixes</title>
+<meta name="description" content="Usually it&#x27;s one of four things: the listing isn&#x27;t linked to the right Shopify variant, the SKUs differ by a character, inventory tracking is off on the pr">
+<link rel="canonical" href="https://ackly.app/fix/marketplace-connect-not-syncing-inventory.html">
+<link rel="stylesheet" href="../assets/ackly.css">
+<style>
+  .sheet section { max-width: 46rem; }
+  .cta { margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--rule); border-radius: 10px; }
+  .cause h3 { margin-bottom: .25rem; }
+  ol.steps li { margin-bottom: .6rem; }
+  .stat { color: var(--ink-2); font-size: .95rem; }
+</style>
+</head>
+<body class="watch">
+<header class="band"><div class="band__inner"><a class="mark" href="../"><span>Ackly <span class="mark__product">Sync checker</span></span></a></div></header>
+<main id="main" class="sheet">
+<section>
+<h1>Marketplace Connect isn&#x27;t syncing your inventory to eBay</h1>
+<p class="lede">Usually it&#x27;s one of four things: the listing isn&#x27;t linked to the right Shopify variant, the SKUs differ by a character, inventory tracking is off on the product, or the eBay order never imported (Marketplace Connect lowers Shopify stock by importing the eBay order).</p>
+<div class="cta"><strong>Check yours in a minute.</strong> The <a href="../check/">free sync checker</a> compares your Shopify export with your eBay listings report in your browser and lists every listing that doesn't match. Nothing is uploaded.</div>
+<h2>Why it happens</h2>
+<div class="cause"><h3>The listing lost its link</h3><p>eBay listings can show as matched, then drop to unmatched after edits, relists or variant changes. An unlinked listing keeps its old quantity forever.</p></div><div class="cause"><h3>SKUs differ by one character</h3><p>A trailing space, a different case or the parent SKU instead of the variant&#x27;s (TEE instead of TEE-RED-M) is enough to break matching.</p></div><div class="cause"><h3>Inventory isn&#x27;t tracked in Shopify</h3><p>If &quot;Track quantity&quot; is off on the variant, there is no number to send, so eBay keeps whatever it had.</p></div><div class="cause"><h3>The eBay order didn&#x27;t import</h3><p>Stock only drops in Shopify when the eBay order is created there. A failed order import means Shopify, and then every other channel, still shows the unit as available.</p></div>
+<h2>How to fix it</h2>
+<ol class="steps"><li>Export your Shopify products and your eBay active listings, and run them through the free checker below: it lists every listing whose stock or price doesn&#x27;t match, and every SKU that matches nothing.</li><li>For each unlinked SKU, make it identical on both sides (copy it from Shopify into eBay&#x27;s Custom label), then run Link listings again in Marketplace Connect.</li><li>Turn on Track quantity for every variant you sell on eBay and set real counts.</li><li>In Marketplace Connect, open Orders and look for failed eBay imports; fix the reason shown (often an unlinked or deleted product) and retry them.</li><li>Run the checker again. Zero red rows means the channels agree.</li></ol>
+<p class="stat">Of 840 one- to three-star reviews of marketplace sync apps we read in November 2026, 347 describe the sync stopping without a visible error.</p>
+<div class="cta"><strong>Rather have it fixed?</strong> We fix the links, SKUs and settings behind it: a flat $150, and you only pay once the checker comes back clean. <a href="mailto:hello@ackly.app?subject=Fix%20my%20eBay%20sync">Email us</a>.</div>
+<h2>Related</h2>
+<ul><li><a href="ebay-sku-not-matching-shopify.html">Your eBay SKUs don&#x27;t match Shopify</a></li><li><a href="oversold-on-ebay-after-shopify-sale.html">You sold the last one on Shopify, then eBay sold it again</a></li><li><a href="ebay-listing-still-active-when-sold-out.html">Sold out in Shopify, still live on eBay</a></li><li><a href="ebay-price-different-from-shopify.html">Your eBay prices don&#x27;t match Shopify</a></li></ul>
+</section>
+</main>
+<footer class="foot"><div class="foot__inner"><p>Ackly, Shopify apps that show their work. Made in Luxembourg.</p><p><a href="../privacy.html">Privacy</a> · Not affiliated with eBay or Shopify.</p></div></footer>
+</body>
+</html>
